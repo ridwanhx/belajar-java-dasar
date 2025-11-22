@@ -1,0 +1,8 @@
+com\example\LoginApp.class
+com\example\App.class
+com\example\DashboardFrame.class
+com\example\LoginFrame$1.class
+com\example\LoginApp$1.class
+com\example\AuthService.class
+com\example\LoginFrame.class
+com\example\MongoDBConnection.class

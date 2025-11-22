@@ -1,4 +1,4 @@
-public class DatabaseDemo {
+public class Catatan {
     // # Database
 
     // Structured Database -> tabel (berisi baris dan kolom, yang tiap kolom nya merepresentasikan suatu data)
