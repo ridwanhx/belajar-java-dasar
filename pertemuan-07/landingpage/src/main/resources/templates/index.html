@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio | Digital CV 2026</title>
+
+    <!-- styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container-nav">
+        <div class="logo">
+          <i class="fas-fa-rocket"></i>
+          <span>Portfolio</span>
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="stars"></div>
+      <div class="hero-content" data-aos="fade-up">
+        <div class="profile-container">
+          <div class="profile-pic">
+            <img
+              src="https://api.dicebear.com/9.x/avataaars/svg?seed=Nolan"
+              alt="Profile"
+            />
+          </div>
+        </div>
+        <h1 class="hero-title">
+          <span class="greeting">Muhamad Ridwan,</span><br />
+          <span class="name">Saya <span id="typing" class="typed"></span></span>
+        </h1>
+        <p class="hero-subtitle">
+          Full Stack Developer | Tech Enthusiast | Problem Solver
+        </p>
+        <div class="hero-buttons">
+          <button
+            class="btn btn-primary"
+            onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"
+          >
+            <i class="fas fa-arrow-down"></i>
+            Learn More
+          </button>
+          <button class="btn btn-secondary">
+            <i class="fas fa-download"></i>
+            Download CV
+          </button>
+        </div>
+        <div class="social-icons">
+          <a href="https://github.com" target="_blank" class="social-icon"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://linkedin.com" target="_blank" class="social-icon"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="mailto:email@example.com" class="social-icon"
+            ><i class="fab fa-envelope"></i
+          ></a>
+          <a href="https://instagram.com" target="_blank" class="social-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-down">Tentang Saya</h2>
+        <div class="about-content" data-aos="fade-up">
+          <div class="about-text">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aut
+              libero doloribus molestias, veritatis sapiente voluptatum quidem
+              recusandae eaque officiis distinctio.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Praesentium, molestias rem.
+            </p>
+            <div class="stats">
+              <div class="stat-item">
+                <h3>50+</h3>
+                <p>Projects</p>
+              </div>
+              <div class="stat-item">
+                <h3>30+</h3>
+                <p>Clients</p>
+              </div>
+              <div class="stat-item">
+                <h3>5+</h3>
+                <p>Years</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-features">
+            <div class="feature-card" data-aos="zoom-in">
+              <i class="fas fa-code"></i>
+              <h4>Clean Code</h4>
+              <p>Menulis kode yang rapi dan maintainable</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in">
+              <i class="fas fa-bolt"></i>
+              <h4>Fast Performance</h4>
+              <p>Optimasi untuk kecepatan maksimal</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in">
+              <i class="fas fa-lock"></i>
+              <h4>Secure</h4>
+              <p>Fokus pada keamanan aplikasi</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in">
+              <i class="fas fa-mobile-alt"></i>
+              <h4>Responsive</h4>
+              <p>Desain yang mobile-friendly</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-down">Skills & Expertise</h2>
+        <div class="skills-grid" data-aos="fade-up">
+          <div class="skill-category">
+            <h3><i class="fas fa-laptop-code">Frontend</i></h3>
+            <div class="skill-list">
+              <div class="skill-bar">
+                <span class="skill-name">HTML / CSS</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <span class="skill-name">JavaScript</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <span class="skill-name">React / Vue</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-server">Backend</i></h3>
+            <div class="skill-list">
+              <div class="skill-bar">
+                <span class="skill-name">Java / Spring Boot</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <span class="skill-name">Laravel</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 92%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <span class="skill-name">Database</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-tools">Tools</i></h3>
+            <div class="skill-list">
+              <div class="skill-bar">
+                <span class="skill-name">Git/Github</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <span class="skill-name">Docker</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 78%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <span class="skill-name">VS Code</span>
+                <div class="progress">
+                  <div class="progress-fill" style="width: 98%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Skills Section -->
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-down">Featured Projects</h2>
+        <div class="projects-grid" data-aos="fade-up">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="https://placehold.co/300x200?text=Project+1"
+                alt="Project 1"
+              />
+              <div class="project-overlay">
+                <a href="" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>E-Commerce Platform</h3>
+              <p>
+                Platform belanja online dengan fitur payment gateway dan
+                inventory management
+              </p>
+              <div class="project-tags">
+                <span class="tag">Spring Boot</span>
+                <span class="tag">React</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="https://placehold.co/300x200?text=Project+2"
+                alt="Project 2"
+              />
+              <div class="project-overlay">
+                <a href="" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Task Management App</h3>
+              <p>
+                Aplikasi manajemen tugas dengan real-time collaboration dan
+                notification
+              </p>
+              <div class="project-tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Tailwind</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="https://placehold.co/300x200?text=Project+3"
+                alt="Project 3"
+              />
+              <div class="project-overlay">
+                <a href="" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Analytics Dashboad</h3>
+              <p>
+                Dashboard analytics dengan visualisasi data real-time dan
+                reporting
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Projects Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-down">Get In Touch</h2>
+        <div class="contact-content" data-aos="fade-up">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h3>Location</h3>
+                <p>Indonesia</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p>hello@example.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>+62 812 3456 7890</p>
+              </div>
+            </div>
+          </div>
+
+          <form action="" class="contaact-form">
+            <div class="form-group">
+              <input type="text" placeholder="Nama Anda" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Anda" required />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+            </div>
+            <button class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            &copy; 2026 My Portfolio. Dibuat dengan
+            <span class="heart">&hearts;</span> Menggunakan Spring Boot
+          </p>
+          <div class="footer-social">
+            <a href="https://github.com" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://linkedin.com" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script th:src="@{js/script.js}"></script>
+  </body>
+</html>

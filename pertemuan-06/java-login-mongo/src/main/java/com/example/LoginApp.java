@@ -1,14 +1,6 @@
 package com.example;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class LoginApp {
     public static void main(String[] args) {
@@ -16,8 +8,14 @@ public class LoginApp {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new LoginFrame();
+                new LoginFrame(); // Tetap jalankan LoginFrame
             }
         });
+        
+        // Pastikan koneksi ditutup saat aplikasi berakhir
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            MongoDBConnection.close();
+            System.out.println("Koneksi MongoDB ditutup.");
+        }));
     }
 }
