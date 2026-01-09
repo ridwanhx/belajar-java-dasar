@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | EcoWaste</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <i class="fas fa-recycle"></i>
+        <span>EcoWaste</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <p class="menu-label">HOME</p>
+        <ul>
+          <li class="active">
+            <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-chart-line"></i> Statistik</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-file-alt"></i> Laporan</a>
+          </li>
+        </ul>
+
+        <p class="menu-label">PENGELOLAAN</p>
+        <ul>
+          <li>
+            <a th:href="@{/waste}"><i class="fas fa-box"></i> Data Sampah</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-users"></i> Data Nasabah</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fas fa-exchange-alt"></i> Transaksi Setoran</a
+            >
+          </li>
+        </ul>
+
+        <p class="menu-label">UI COMPONENTS</p>
+        <ul>
+          <li>
+            <a href="#"><i class="fas fa-layer-group"></i> Buttons</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-bell"></i> Alerts</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-id-card"></i> Cards</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-wrapper">
+      <header class="navbar">
+        <button id="toggle-sidebar"><i class="fas fa-bars"></i></button>
+        <div class="user-profile">
+          <img src="https://ui-avatars.com/api/?name=Admin+Eco" alt="Profile" />
+          <div class="user-info">
+            <span class="user-name">Admin Eco</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <div class="info-card">
+                <div class="card-body">
+                  <h6>Total Sampah (kg)</h6>
+                  <h3>1,240.5 <small>kg</small></h3>
+                  <p class="text-success">
+                    <i class="fas fa-arrow-up"></i> +12% dari bulan lalu
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card shadow-sm">
+                <div class="card-header">Upcoming Schedules</div>
+                <div class="card-body">
+                  <ul class="timeline">
+                    <li>
+                      <span class="time">09:30</span>
+                      <div class="timeline-content">
+                        Setoran masuk dari <strong>Budi</strong> (Plastik)
+                      </div>
+                    </li>
+                    <li>
+                      <span class="time">11:00</span>
+                      <div class="timeline-content">
+                        Penjualan limbah ke pabrik
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="card shadow-sm">
+                <div class="card-header">Daftar Sampah Terkini</div>
+                <div class="card-body">
+                  <table class="table-dashboard">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Harga/Unit</th>
+                        <th>Stok</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Botol Plastik PET</td>
+                        <td>Rp 3.500</td>
+                        <td>+120.5 kg</td>
+                        <td>
+                          <span class="status-badge available">Tersedia</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>&copy; 2026 <strong>EcoWaste</strong>. All rights reserved.</p>
+        <p>Design inspired by Spike Admin</p>
+      </footer>
+    </main>
+
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <script>
+      const toggleBtn = document.getElementById("toggle-sidebar");
+      const sidebar = document.querySelector(".sidebar");
+      const overlay = document.getElementById("overlay");
+
+      // Fungsi untuk membuka/menutup sidebar
+      toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+        overlay.classList.toggle("active");
+      });
+
+      // Menutup sidebar jika user mengklik di luar sidebar (pada overlay)
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("active");
+      });
+
+      // Menutup sidebar otomatis jika layar diperbesar ke desktop
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 992) {
+          sidebar.classList.remove("show");
+          overlay.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>

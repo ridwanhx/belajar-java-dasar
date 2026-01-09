@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Sampah | EcoWaste</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <i class="fas fa-recycle"></i>
+        <span>EcoWaste</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <p class="menu-label">HOME</p>
+        <ul>
+          <li>
+            <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-chart-line"></i> Statistik</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-file-alt"></i> Laporan</a>
+          </li>
+        </ul>
+
+        <p class="menu-label">PENGELOLAAN</p>
+        <ul>
+          <li class="active">
+            <a th:href="@{/waste}"><i class="fas fa-box"></i> Data Sampah</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-users"></i> Data Nasabah</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fas fa-exchange-alt"></i> Transaksi Setoran</a
+            >
+          </li>
+        </ul>
+
+        <p class="menu-label">UI COMPONENTS</p>
+        <ul>
+          <li>
+            <a href="#"><i class="fas fa-layer-group"></i> Buttons</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-bell"></i> Alerts</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-id-card"></i> Cards</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-wrapper">
+      <header class="navbar">
+        <button id="toggle-sidebar"><i class="fas fa-bars"></i></button>
+        <div class="user-profile">
+          <img src="https://ui-avatars.com/api/?name=Admin+Eco" alt="Profile" />
+          <div class="user-info">
+            <span class="user-name">Admin Eco</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="container-fluid">
+          <div class="mb-4">
+            <a th:href="@{/waste}" class="text-muted text-decoration-none">
+              <i class="fas fa-arrow-left"></i> Kembali ke Daftar
+            </a>
+          </div>
+
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <form
+                th:action="@{/waste/save}"
+                th:object="${waste}"
+                method="POST"
+              >
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <label class="form-label">Nama Item Sampah</label>
+                    <input
+                      type="text"
+                      th:field="*{itemName}"
+                      class="form-control"
+                      placeholder="Contoh: Botol Plastik PET"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-lg-6 mb-3">
+                    <label class="form-label">Kategori</label>
+                    <select
+                      th:field="*{category}"
+                      class="form-control"
+                      required
+                    >
+                      <option value="">-- Pilih Kategori --</option>
+                      <option value="Plastik">Plastik</option>
+                      <option value="Kertas">Kertas</option>
+                      <option value="Logam">Logam</option>
+                      <option value="Kaca">Kaca</option>
+                      <option value="Elektronik">Elektronik</option>
+                    </select>
+                  </div>
+
+                  <div class="col-lg-4 mb-3">
+                    <label class="form-label">Satuan</label>
+                    <input
+                      type="text"
+                      th:field="*{unit}"
+                      class="form-control"
+                      placeholder="kg, gram, liter, dll"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-lg-4 mb-3">
+                    <label class="form-label">Harga per Unit (Rp)</label>
+                    <input
+                      type="number"
+                      th:field="*{pricePerUnit}"
+                      class="form-control"
+                      placeholder="0"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-lg-4 mb-3">
+                    <label class="form-label">Stok Saat Ini</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      th:field="*{stock}"
+                      class="form-control"
+                      placeholder="0.0"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-12 mb-4">
+                    <label class="form-label">Deskripsi Tambahan</label>
+                    <textarea
+                      th:field="*{description}"
+                      class="form-control"
+                      rows="4"
+                      placeholder="Keterangan mengenai jenis sampah ini..."
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button type="submit" class="btn-save">
+                    <i class="fas fa-save"></i> Simpan Data
+                  </button>
+                  <a th:href="@{/waste}" class="btn-cancel">Batal</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <script>
+      const toggleBtn = document.getElementById("toggle-sidebar");
+      const body = document.body;
+      const overlay = document.getElementById("overlay");
+
+      toggleBtn.addEventListener("click", () => {
+        if (window.innerWidth > 992) {
+          body.classList.toggle("sidebar-toggled");
+        } else {
+          body.classList.toggle("sidebar-show");
+          overlay.classList.toggle("active");
+        }
+      });
+    </script>
+  </body>
+</html>
